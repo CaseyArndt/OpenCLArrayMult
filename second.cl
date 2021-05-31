@@ -1,6 +1,6 @@
 kernel
 void
-ArrayMult( global const float *dA, global const float *dB, global float *dC, float *dD)
+ArrayMult( global const float *dA, global const float *dB, global const float *dC, global float *dD)
 {
 	int gid = get_global_id( 0 );
 
