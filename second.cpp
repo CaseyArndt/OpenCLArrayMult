@@ -107,7 +107,7 @@ main( int argc, char *argv[ ] )
 	if( status != CL_SUCCESS )
 		fprintf( stderr, "clCreateBuffer failed (2)\n" );
 
-	cl_mem dC = clCreateBuffer( context, CL_MEM_WRITE_ONLY, dataSize, NULL, &status );
+	cl_mem dC = clCreateBuffer( context, CL_MEM_READ_ONLY, dataSize, NULL, &status );
 	if( status != CL_SUCCESS )
 		fprintf( stderr, "clCreateBuffer failed (3)\n" );
 	
