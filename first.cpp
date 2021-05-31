@@ -16,22 +16,22 @@
 
 
 #ifndef NMB
-#define	NMB			64
+#define	NMB			        64
 #endif
 
 #define NUM_ELEMENTS		NMB*1024*1024
 
 #ifndef LOCAL_SIZE
-#define	LOCAL_SIZE		64
+#define	LOCAL_SIZE		    64
 #endif
 
 #define	NUM_WORK_GROUPS		NUM_ELEMENTS/LOCAL_SIZE
 
-const char *			CL_FILE_NAME = { "first.cl" };
-const float			TOL = 0.0001f;
+const char *			    CL_FILE_NAME = { "first.cl" };
+const float			        TOL = 0.0001f;
 
-void			Wait( cl_command_queue );
-int				LookAtTheBits( float );
+void Wait( cl_command_queue );
+int	LookAtTheBits( float );
 
 
 int
@@ -41,13 +41,13 @@ main( int argc, char *argv[ ] )
 	// (no point going on if we can't):
 
 	FILE *fp;
-#ifdef WIN32
-	errno_t err = fopen_s( &fp, CL_FILE_NAME, "r" );
-	if( err != 0 )
-#else
-	fp = fopen( CL_FILE_NAME, "r" );
-	if( fp == NULL )
-#endif
+    #ifdef WIN32
+        errno_t err = fopen_s( &fp, CL_FILE_NAME, "r" );
+        if( err != 0 )
+    #else
+        fp = fopen( CL_FILE_NAME, "r" );
+        if( fp == NULL )
+    #endif
 	{
 		fprintf( stderr, "Cannot open OpenCL source file '%s'\n", CL_FILE_NAME );
 		return 1;
@@ -146,7 +146,7 @@ main( int argc, char *argv[ ] )
 
 	// 8. compile and link the kernel code:
 
-	char *options = { "" };
+	char *options = { (char *)"" };
 	status = clBuildProgram( program, 1, &device, options, NULL, NULL );
 	if( status != CL_SUCCESS )
 	{
@@ -219,9 +219,9 @@ main( int argc, char *argv[ ] )
 	fprintf( stderr, "%8d\t%4d\t%10d\t%10.3lf GigaMultsPerSecond\n",
 		NMB, LOCAL_SIZE, NUM_WORK_GROUPS, (double)NUM_ELEMENTS/(time1-time0)/1000000000. );
 
-#ifdef WIN32
-	Sleep( 2000 );
-#endif
+    #ifdef WIN32
+        Sleep( 2000 );
+    #endif
 
 
 	// 13. clean everything up:
