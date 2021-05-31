@@ -10,5 +10,5 @@ if __name__ == '__main__':
         for t in elements:
             cmd = f"g++ -DNUM_ELEMENTS={t} -DLOCAL_SIZE={s} -o first first.cpp /usr/local/apps/cuda/10.1/lib64/libOpenCL.so.1.1 -lm -fopenmp"
             os.system(cmd)
-            cmd = "./prog"
+            cmd = "./first"
             os.system(cmd)

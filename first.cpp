@@ -15,7 +15,9 @@
 #include "CL/cl_platform.h"
 
 
+#ifndef NUM_ELEMENTS
 #define NUM_ELEMENTS		1024
+#endif
 
 #ifndef LOCAL_SIZE
 #define	LOCAL_SIZE		    64
