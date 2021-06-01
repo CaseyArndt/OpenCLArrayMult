@@ -1,6 +1,6 @@
 kernel
 void
-ArrayMult( global const float *dA, global const float *dB, local float *prods, global float *dC)
+ArrayMultReduce( global const float *dA, global const float *dB, local float *prods, global float *dC)
 {
 	int gid = get_global_id( 0 );
     int numItems = get_local_size( 0);
